@@ -1,134 +1,58 @@
 <template>
-  <div class="hero-container">
-    <div class="glass-card">
-      <h1 class="title">Health<span class="highlight">App</span></h1>
-      <p class="subtitle">Your journey to a healthier life starts here.</p>
+  <h1 class="bg-red-500 text-white">Health App</h1>
+  <div class="min-h-screen flex items-center justify-center bg-slate-950 p-6 font-sans text-slate-50 selection:bg-sky-500/30">
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-sky-500/10 blur-[120px] rounded-full"></div>
+      <div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full"></div>
+    </div>
 
-      <div class="features-grid">
-        <div class="feature-item">
-          <i class="icon">🥗</i>
-          <h3>Nutrition</h3>
-          <p>Track your daily meals and macros.</p>
-        </div>
-        <div class="feature-item">
-          <i class="icon">💪</i>
-          <h3>Workout</h3>
-          <p>Guided routines for all levels.</p>
-        </div>
-        <div class="feature-item">
-          <i class="icon">😴</i>
-          <h3>Sleep</h3>
-          <p>Analyze your sleep patterns.</p>
+    <div class="glass-card relative z-10 p-8 md:p-16 max-w-4xl w-full text-center">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
+        Health<span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">App</span>
+      </h1>
+      <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
+        Your journey to a healthier life starts here. Track, analyze, and improve your daily habits.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div v-for="feature in features" :key="feature.title"
+             class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+          <div class="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+            {{ feature.icon }}
+          </div>
+          <h3 class="text-xl font-semibold mb-2">{{ feature.title }}</h3>
+          <p class="text-sm text-slate-400">{{ feature.description }}</p>
         </div>
       </div>
 
-      <button class="cta-button" @click="startJourney">Get Started</button>
+      <button @click="startJourney"
+              class="group relative px-8 py-4 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40">
+        Get Started
+        <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
+const features = [
+  { icon: '🥗', title: 'Nutrition', description: 'Track your daily meals and macros effortlessly.' },
+  { icon: '💪', title: 'Workout', description: 'Personalized routines for your fitness level.' },
+  { icon: '😴', title: 'Sleep', description: 'Deep insights into your recovery and rest.' }
+];
+
 const startJourney = () => {
   console.log('Journey started!');
 };
 </script>
 
 <style scoped>
-.hero-container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  padding: 2rem;
-  font-family: 'Inter', sans-serif;
-  color: #f8fafc;
-}
-
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 4rem;
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.highlight {
-  background: linear-gradient(to right, #38bdf8, #818cf8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  color: #94a3b8;
-  margin-bottom: 3rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.feature-item {
   background: rgba(255, 255, 255, 0.03);
-  padding: 1.5rem;
-  border-radius: 16px;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.feature-item:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.icon {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.feature-item h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: #f8fafc;
-}
-
-.feature-item p {
-  font-size: 0.9rem;
-  color: #94a3b8;
-}
-
-.cta-button {
-  background: linear-gradient(to right, #38bdf8, #818cf8);
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
 }
 </style>
