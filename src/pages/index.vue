@@ -1,21 +1,4 @@
-<script setup>
-import { ref } from 'vue';
-import { User, Mail, Phone } from 'lucide-vue-next';
 
-const formData = ref({
-  name: '',
-  email: 'mail@example.com',
-  mobile: '+971'
-});
-
-const handleSubmit = () => {
-  console.log('Sign in submitted:', formData.value);
-};
-
-const handleUAEPass = () => {
-  console.log('Sign in with UAE PASS');
-};
-</script>
 
 <template>
   <div class="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 flex items-center justify-center p-4">
@@ -92,12 +75,18 @@ const handleUAEPass = () => {
 
         <!-- Sign In Button -->
         <button
-          type="submit"
+          type=""
           class="w-full py-3 bg-gradient-to-r from-blue-400 to-cyan-400 text-white rounded-lg font-medium hover:from-blue-500 hover:to-cyan-500 transition shadow-md mt-6"
         >
           Sign in
         </button>
-
+        <!-- Sign In Button -->
+        <button
+          type="submit"
+          class="w-full py-3 bg-gradient-to-r from-blue-400 to-cyan-400 text-white rounded-lg font-medium hover:from-blue-500 hover:to-cyan-500 transition shadow-md mt-6"
+        >
+          go to body analysis
+        </button>
         <!-- UAE PASS Button -->
         <button
           type="button"
@@ -109,7 +98,27 @@ const handleUAEPass = () => {
           </svg>
           Sign in with UAE PASS
         </button>
+
       </form>
     </div>
   </div>
 </template>
+<script setup>
+import { ref } from 'vue';
+import { User, Mail, Phone } from 'lucide-vue-next';
+
+const formData = ref({
+  name: '',
+  email: 'mail@example.com',
+  mobile: '+971'
+});
+
+const handleSubmit = () => {
+  console.log('Sign in submitted:', formData.value);
+  navigateTo('/screen2/resulte_overview');
+};
+
+const handleUAEPass = () => {
+  console.log('Sign in with UAE PASS');
+};
+</script>
