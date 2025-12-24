@@ -3,11 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --primary: #38bdf8;
   --secondary: #818cf8;
-  --bg-dark: #0f172a;
+  /* --bg-dark: #0f172a; */
   --bg-card: rgba(255, 255, 255, 0.05);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
